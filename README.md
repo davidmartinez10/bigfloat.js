@@ -52,7 +52,8 @@ evaluate(`4 >= ${Math.PI}`);           // true
 Valid tokens:
   - Parenthesis: (,)
   - Number: Decimal, integer or scientific e-notation
-  - Operator: Arithmetic +,-,/,\*,\*\* Relational =\=\=,=\=,!==,!=,<,>,<=,>=
+  - Operator: Arithmetic +,-,/,%,*,** Relational =\=\=,=\=,!==,!=,<,>,<=,>=
+  
 ### Change precision
 ```typescript
 const { BigFloat } = require("bigfloat.js");
