@@ -147,7 +147,16 @@ export function scientific(a: IBigFloat): string {
   let   s = String(JSBI.LT(a.coefficient, BIGINT_ZERO) ? -a.coefficient
                                                        : a.coefficient);
   const e = a.exponent + s.length - 1;
-  if (s.length > 1) { s = s.slice(0, 1) + "." + s.slice(1); }
+  if (s.length > 1) {
+    const decimals = [...s.slice(1)];
+    for (const d of decimals.toReversed()) {
+      if (d !== "0") { break; }
+      decimals.pop();
+    }
+    s = s.slice(0, 1);
+    "." + decimals.join("");
+  }
+
   if (e !== 0) { s += "e" + e; }
   if (JSBI.LT(a.coefficient, BIGINT_ZERO)) { s = "-" + s; }
   return s;
