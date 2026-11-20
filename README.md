@@ -1,31 +1,29 @@
-[![BigFloat](https://raw.githubusercontent.com/davidmartinez10/bigfloat-esnext/master/bigfloat.jpg)](https://github.com/davidmartinez10/bigfloat)
-
 A library for arbitrary precision decimal floating point arithmetic that can exactly represent all decimal fractions,
 unlike JavaScript's number data type which is 64-bit binary floating point.
 
-Based on the original work by Douglas Crockford.
+Based on the original work by Douglas Crockford: [howjavascriptworks](https://github.com/douglascrockford/howjavascriptworks).
 This implementation is built upon the Google Chrome Labs' implementation of ECMAScript big integers: JSBI.
+
+>NOTE: This is a compatibility package intended for older engines. If you are targeting a runtime that supports native bigints and the exponentiation operator(**), then you don't need JSBI and you should be using [bigfloat-esnext](https://github.com/davidmartinez10/bigfloat-esnext).
 
 This library provides three ways to make bigfloat operations:
   - A set of functions for a functional style approach
   - A BigFloat class with an API similar to that of Decimal.js
   - An evaluate() function that parses and resolves an expression
 
-NOTE: This is a compatibility package intended for cross-browser support. If you are targetting Node.js, Electron or any engine that supports native bigints and the exponentiation operator(**), then you don't need JSBI and you should be using [bigfloat-esnext](https://github.com/davidmartinez10/bigfloat-esnext).
-
 # Basic usage
 ### Functional style
 ```typescript
-import { make, string, sqrt } from "bigfloat.js";
+const { make, string, sqrt } = require("bigfloat.js");
 
-string(sqrt(make("2")));               // "1.4142"
+string(sqrt(make("2")));               // "1.41421"
 ```
 
 ### Class based
 ```typescript
-import { BigFloat } from "bigfloat.js";
+const { BigFloat } = require("bigfloat.js");
 
-new BigFloat("2").sqrt().toString();   // "1.4142"
+new BigFloat("2").sqrt().toString();   // "1.41421"
 ```
 
 ### The evaluate() function
@@ -33,9 +31,9 @@ new BigFloat("2").sqrt().toString();   // "1.4142"
 evaluate(expression: string, precision?: number): string | boolean
 ```
 >The first argument can be any valid arithmetic or relational expression, including scientific e-notation.
->(Optional) Precision should be a negative integer. Default is -4.
+>(Optional) Precision should be a negative integer. Default is -5.
 ```typescript
-import { evaluate } from "bigfloat.js";
+const { evaluate } = require("bigfloat.js");
 
 0.1 + 0.2 === 0.3;                     // false
 evaluate("0.1 + 0.2 == 0.3");          // true
@@ -54,13 +52,14 @@ evaluate(`4 >= ${Math.PI}`);           // true
 Valid tokens:
   - Parenthesis: (,)
   - Number: Decimal, integer or scientific e-notation
-  - Operator: Arithmetic +,-,/,\*,\*\* Relational =\=\=,=\=,!==,!=,<,>,<=,>=
+  - Operator: Arithmetic +,-,/,%,*,** Relational =\=\=,=\=,!==,!=,<,>,<=,>=
+
 ### Change precision
 ```typescript
-import { BigFloat, set_precision } from "bigfloat.js";
+const { BigFloat } = require("bigfloat.js");
 
-new BigFloat(2).sqrt().toString();     // "1.4142"
-set_precision(-10);
+new BigFloat(2).sqrt().toString();     // "1.41421"
+BigFloat.setPrecision(-10);
 new BigFloat(2).sqrt().toString();     // "1.4142135623"
 ```
 ### The bigfloat object
