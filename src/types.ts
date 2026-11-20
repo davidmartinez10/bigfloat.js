@@ -6,11 +6,3 @@ export interface IBigFloat {
 }
 
 export type NumericValue = string|number|IBigFloat|JSBI;
-
-export type TokenArray = ({
-  type: string;
-  value: string|IBigFloat
-}|{
-  type: string;
-  value: boolean
-})[];

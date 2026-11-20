@@ -3,7 +3,15 @@ import {PRECISION, ZERO} from "./constants.ts";
 import {make, normalize, string} from "./constructors.ts";
 import {is_number, is_zero} from "./predicates.ts";
 import {eq, gt, lt} from "./relational.ts";
-import type {IBigFloat, TokenArray} from "./types.ts";
+import type {IBigFloat} from "./types.ts";
+
+type TokenArray = ({
+  type: string;
+  value: string|IBigFloat
+}|{
+  type: string;
+  value: boolean
+})[];
 
 export function evaluate(source: string,
                          precision = PRECISION): string|boolean {
@@ -35,7 +43,7 @@ export function evaluate(source: string,
 
   const expression = parenthesize(source);
   const rx_tokens
-    = /(-?\d+(?:\.\d+)?(?:e(-?|\+?)\d+)?)|(\(|\))|(\+|-|\/|\*\*|==|!=|<=?|>=?|\*|\^|%)/g;
+    = /(-?\d+(?:\.\d+)?(?:(e|E)(-?|\+?)\d+)?)|(\(|\))|(\+|-|\/|\*\*|==|!=|<=?|>=?|\*|\^|%)/g;
   // Capture groups
   // [1] Number
   // [2] Paren
