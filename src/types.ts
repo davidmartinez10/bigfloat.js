@@ -5,8 +5,12 @@ export interface IBigFloat {
   exponent: number;
 }
 
-export type NumericValue = string | number | IBigFloat | JSBI;
+export type NumericValue = string|number|IBigFloat|JSBI;
 
-export type TokenArray = Array<
-  { type: string; value: string | IBigFloat } | { type: string; value: boolean }
->;
+export type TokenArray = ({
+  type: string;
+  value: string|IBigFloat
+}|{
+  type: string;
+  value: boolean
+})[];

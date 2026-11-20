@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
-    "module": "esnext",
     "declaration": true,
-    "outDir": "lib/esm",
+    "target": "ES6",
+    "module": "CommonJS",
+    "rootDir": "src",
+    "outDir": "lib",
     "strict": true,
     "lib": [
       "esnext"
     ],
     "esModuleInterop": true,
-    "moduleResolution": "node"
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true
   },
   "include": [
     "src"

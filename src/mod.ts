@@ -1,9 +1,9 @@
-export * from "./arithmetic.js";
-export * from "./constructors.js";
-export * from "./predicates.js";
-export * from "./relational.js";
+export * from "./arithmetic.ts";
+export * from "./constructors.ts";
+export * from "./predicates.ts";
+export * from "./relational.ts";
 
-export { BigFloat } from "./bigfloat.js";
-export { IBigFloat } from "./types";
-export { set_precision } from "./constants.js";
-export { evaluate } from "./interpreter.js";
+export {BigFloat} from "./bigfloat.ts";
+export type {IBigFloat} from "./types.ts";
+export {set_precision} from "./constants.ts";
+export {evaluate} from "./interpreter.ts";
