@@ -4,7 +4,7 @@ unlike JavaScript's number data type which is 64-bit binary floating point.
 Based on the original work by Douglas Crockford: [howjavascriptworks](https://github.com/douglascrockford/howjavascriptworks).
 This implementation is built upon the Google Chrome Labs' implementation of ECMAScript big integers: JSBI.
 
->NOTE: This is a compatibility package intended for older engines. If you are targeting a runtime that supports native bigints and the exponentiation operator(**), then you don't need JSBI and you should be using [bigfloat-esnext](https://github.com/davidmartinez10/bigfloat-esnext).
+>NOTE: This is a compatibility package intended for older engines. If you are targeting a runtime that supports native bigints and the exponentiation operator(**), then you don't need JSBI and instead you should be using [bigfloat-esnext (npm)](https://www.npmjs.com/package/bigfloat-esnext) or [bigfloat (jsr)](https://jsr.io/@davidmartinez/bigfloat).
 
 This library provides three ways to make bigfloat operations:
   - A set of functions for a functional style approach
@@ -76,3 +76,8 @@ const bigfloat: IBigFloat {
   exponent: -4
 };
 ```
+### Alternative versions
+>[bigfloat](https://jsr.io/@davidmartinez/bigfloat) - JSR · Node, Deno, Bun, browsers · Best for modern setups
+
+>[bigfloat-esnext](https://www.npmjs.com/package/bigfloat-esnext) - NPM · ES modules
+
