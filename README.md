@@ -14,14 +14,14 @@ This library provides three ways to make bigfloat operations:
 # Basic usage
 ### Functional style
 ```typescript
-import { make, string, sqrt } from "bigfloat.js";
+const { make, string, sqrt } = require("bigfloat.js");
 
 string(sqrt(make("2")));               // "1.41421"
 ```
 
 ### Class based
 ```typescript
-import { BigFloat } from "bigfloat.js";
+const { BigFloat } = require("bigfloat.js");
 
 new BigFloat("2").sqrt().toString();   // "1.41421"
 ```
@@ -33,7 +33,7 @@ evaluate(expression: string, precision?: number): string | boolean
 >The first argument can be any valid arithmetic or relational expression, including scientific e-notation.
 >(Optional) Precision should be a negative integer. Default is -5.
 ```typescript
-import { evaluate } from "bigfloat.js";
+const { evaluate } = require("bigfloat.js");
 
 0.1 + 0.2 === 0.3;                     // false
 evaluate("0.1 + 0.2 == 0.3");          // true
@@ -55,10 +55,10 @@ Valid tokens:
   - Operator: Arithmetic +,-,/,\*,\*\* Relational =\=\=,=\=,!==,!=,<,>,<=,>=
 ### Change precision
 ```typescript
-import { BigFloat, set_precision } from "bigfloat.js";
+const { BigFloat } = require("bigfloat.js");
 
 new BigFloat(2).sqrt().toString();     // "1.41421"
-set_precision(-10);
+BigFloat.setPrecision(-10);
 new BigFloat(2).sqrt().toString();     // "1.4142135623"
 ```
 ### The bigfloat object
