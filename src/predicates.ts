@@ -6,8 +6,7 @@ import {eq} from "./relational.ts";
 import type {IBigFloat, NumericValue} from "./types.ts";
 
 export function is_big_float(big: NumericValue): boolean {
-  return (typeof big === "object" && ! (big instanceof JSBI)
-          && big.coefficient instanceof JSBI
+  return (typeof big === "object" && big.coefficient instanceof JSBI
           && Number.isSafeInteger(big.exponent));
 }
 
@@ -20,7 +19,7 @@ export function is_negative(big: IBigFloat): boolean {
 }
 
 export function is_positive(big: IBigFloat): boolean {
-  return JSBI.GE(big.coefficient, BIGINT_ZERO);
+  return JSBI.GT(big.coefficient, BIGINT_ZERO);
 }
 
 export function is_zero(big: IBigFloat): boolean {
