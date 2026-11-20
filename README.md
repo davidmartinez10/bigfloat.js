@@ -1,7 +1,7 @@
 A library for arbitrary precision decimal floating point arithmetic that can exactly represent all decimal fractions,
 unlike JavaScript's number data type which is 64-bit binary floating point.
 
->NOTE: This is a compatibility package intended for older engines. If you are targetting a runtime that supports native bigints and the exponentiation operator(**), then you don't need JSBI and you should be using [bigfloat-esnext](https://github.com/davidmartinez10/bigfloat-esnext).
+>NOTE: This is a compatibility package intended for older engines. If you are targeting a runtime that supports native bigints and the exponentiation operator(**), then you don't need JSBI and you should be using [bigfloat-esnext](https://github.com/davidmartinez10/bigfloat-esnext).
 
 Based on the original work by Douglas Crockford: [howjavascriptworks](https://github.com/douglascrockford/howjavascriptworks).
 This implementation is built upon the Google Chrome Labs' implementation of ECMAScript big integers: JSBI.
